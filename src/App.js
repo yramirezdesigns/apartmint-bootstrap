@@ -2,14 +2,14 @@ import React from "react";
 import logo from "./ApartmintLogoSmall.png";
 import "./App.css";
 import { Button, ButtonToolbar, ButtonGroup, Image } from "react-bootstrap";
-import backDrop from "./assets/bg-1.jpg";
+// import backDrop from "./assets/bg-1.jpg";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Image className="backDrop" alt="Background" src={backDrop} fluid />
+        {/* <Image className="backDrop" alt="Background" src={backDrop} fluid /> */}
         {/* <img className="backDrop" alt="Background" src={backDrop} /> */}
         <ButtonToolbar>
           <ButtonGroup className="mr-2" aria-label="First group">
