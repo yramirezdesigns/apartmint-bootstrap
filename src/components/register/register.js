@@ -1,6 +1,5 @@
 import React from "react";
 import Modal from "../registerModal/registerModal";
-// import Buttons from "../Button";
 import {
   Form,
   Button,
@@ -10,10 +9,10 @@ import {
   // Modal
 } from "react-bootstrap";
 import "./register.css";
-// import Form from "react-bootstrap/Form";
-// import Button from "react-bootstrap/Button";
+import Redirect from "../Aparments/Apartments";
 
-export default class Login extends React.Component {
+export default class Register extends React.Component {
+  // handling the on click events for register and x button ------------- info------------
   constructor(props, context) {
     super(props, context);
 
@@ -37,6 +36,23 @@ export default class Login extends React.Component {
 
     console.log("Bye");
   };
+  // handling the on click events for submit button ------------- info------------
+
+  state = {
+    redirect: false
+  };
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    });
+  };
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect />;
+    }
+  };
+
+  // ---------------------
 
   render() {
     return (
@@ -52,7 +68,6 @@ export default class Login extends React.Component {
             </Button>
           </ButtonGroup>
         </ButtonToolbar>
-
         {/* <Button onClickHandler={e => this.showModal()} buttonText={"Login"} /> */}
         <Modal isShowing={this.state.isShowing}>
           <div>
@@ -64,11 +79,28 @@ export default class Login extends React.Component {
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridPassword">
-                  <Form.Label className="registerModal">Password</Form.Label>
+                  <Form.Label className="registerModal" name="password">
+                    Password
+                  </Form.Label>
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
               </Form.Row>
 
+              <Form.Row>
+                <Form.Group as={Col} controlId="formGridfirstName">
+                  <Form.Label className="registerModal" name="firstName">
+                    First Name
+                  </Form.Label>
+                  <Form.Control type="firstName" placeholder="First Name" />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridlastName">
+                  <Form.Label className="registerModal" name="lastName">
+                    Last Name
+                  </Form.Label>
+                  <Form.Control type="lastName" placeholder="Last Name" />
+                </Form.Group>
+              </Form.Row>
               <Form.Group controlId="formGridAddress1">
                 <Form.Label className="registerModal">Address</Form.Label>
                 <Form.Control placeholder="1234 Main St" />
@@ -109,8 +141,13 @@ export default class Login extends React.Component {
               <Form.Group id="tenantCheckbox">
                 <Form.Check type="checkbox" label="Tenant" />
               </Form.Group>
+              {this.renderRedirect()}
 
-              <Button variant="primary" type="submit">
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={this.setRedirect}
+              >
                 Submit
               </Button>
             </Form>
