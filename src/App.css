@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-image: url("https://media.wired.com/photos/5b8999943667562d3024c321/master/w_2500,c_limit/trash2-01.jpg");
+  background-size: cover;
 }
 
 .App-logo {
@@ -9,7 +11,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /*background-color: #282c34;*/
   min-height: 100vh;
   display: flex;
   flex-direction: column;
